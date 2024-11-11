@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Chat Room</h2>
+    </div>
+    <div class="chat-box" id="chatBox">
+      <!-- Example message threads -->
+      <div class="chat-message user1">Hello! How are you?</div>
+      <div class="chat-message user2">I'm good, thanks! How about you?</div>
+      <div class="chat-message user1">Doing great, just working on a project.</div>
+      <div class="chat-message user2">That sounds awesome! Need any help?</div>
+      <div class="chat-message user1">Yes, actually, could use some CSS tips!</div>
+      <div class="chat-message user2">Sure, happy to help!</div>
+      <div class="chat-message user1">Great! I’ll send you the details.</div>
+      <div class="chat-message user2">Looking forward to it!</div>
+      <div class="chat-message user1">Thanks! 😊</div>
+      <div class="chat-message user2">You're welcome! 👍</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Type a message..." id="messageInput">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  
+  <script>
+    function sendMessage() {
+      const chatBox = document.getElementById("chatBox");
+      const messageInput = document.getElementById("messageInput");
+      
+      if (messageInput.value.trim()) {
+        const newMessage = document.createElement("div");
+        newMessage.className = "chat-message user1";
+        newMessage.textContent = messageInput.value;
+        chatBox.appendChild(newMessage);
+        messageInput.value = '';
+        
+        // Scroll to the bottom of the chat box
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    }
+  </script>
+</body>
+</html>
